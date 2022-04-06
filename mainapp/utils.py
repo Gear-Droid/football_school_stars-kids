@@ -1,7 +1,6 @@
 import os
 import datetime
 
-from smtplib import SMTPException
 from cryptography.fernet import Fernet
 
 from django.conf import settings
@@ -55,7 +54,6 @@ def make_registration_link(email, key):
     email_id = pre_reg_email.pk
     message = bytes(email + '-&id&-' + str(email_id), encoding='utf8')
     encrypted = encrypt_it(message, key).decode()
-    # address = 'http://localhost:8000' + os.path.join(
     address = 'http://' + settings.BASE_URL + os.path.join(
         settings.BASE_DIR, reverse(
             'register_to_private_cabinet',
