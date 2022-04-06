@@ -7,7 +7,6 @@ cryptography==36.0.2
 Django==4.0.3
 django-crispy-forms==1.14.0
 idna==3.3
-mysqlclient==2.1.0
 Pillow==9.1.0
 pycparser==2.21
 pyTelegramBotAPI==4.4.0

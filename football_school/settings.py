@@ -17,10 +17,11 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 from pathlib import Path
 
 
+# ENVIRON PARAMS
 #==============================================================================#
-BASE_URL = os.environ.get('BASE_URL', 'www.stars-kids.ru')
+BASE_URL = os.environ.get('BASE_URL', 'localhost:8000')
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', 'secret_key')
+SECRET_KEY = os.environ.get('SECRET_KEY', 'dev')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', 'True')
 ALLOWED_HOSTS = [
@@ -36,12 +37,16 @@ EMAIL_HOST_USER = 'fcrasskazovka@rambler.ru'
 EMAIL_HOST_PASSWORD = 'Rasskazovka2002'
 #==============================================================================#
 # cryptography
-CRYPTOGRAPHY_KEY = str.encode(os.environ.get('CRYPTOGRAPHY_KEY'))
+CRYPTOGRAPHY_KEY = str.encode(os.environ.get('CRYPTOGRAPHY_KEY', 'dev'))
 #==============================================================================#
 # token for bot
-TG_BOT_TOKEN='5284601816:AAG1HmY4cDf2e5LQQuBHzvcpaQdlJyje4T0'
+TG_BOT_TOKEN = os.environ.get('TG_BOT_TOKEN')
 # telegram chat id
-CHAT_ID = '-1001751034019'
+CHAT_ID = os.environ.get('CHAT_ID')
+#==============================================================================#
+DB_USER_NAME = os.environ.get('DB_USER_NAME')
+DB_NAME = os.environ.get('DB_NAME')
+DB_PASSWORD = os.environ.get('DB_PASSWORD')
 #==============================================================================#
 
 
@@ -105,9 +110,9 @@ WSGI_APPLICATION = 'football_school.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'u1645636_django',
-        'USER': 'u1645636_djuser',
-        'PASSWORD': '67bTrCAv0CZV83Ci',
+        'NAME': DB_NAME,
+        'USER': DB_USER_NAME,
+        'PASSWORD': DB_PASSWORD,
         'HOST': 'localhost',
 	    'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
