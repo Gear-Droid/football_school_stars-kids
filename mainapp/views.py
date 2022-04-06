@@ -1,7 +1,6 @@
 import telebot
 
 from smtplib import SMTPException
-from unicodedata import name
 from cryptography import fernet
 
 from django.db import transaction
@@ -85,11 +84,11 @@ class SendApplication(View):
     def get(self, request, *args, **kwargs):
         name, phone, age = request.GET.get('name'), request.GET.get('phone'), request.GET.get('age')
         # Токен, который выдает @botfather
-        bot = telebot.TeleBot('5284601816:AAG1HmY4cDf2e5LQQuBHzvcpaQdlJyje4T0')
-        # Адрес телеграм-канала, начинается с @
-        CHAT_ID = '-1001751034019'
+        bot = telebot.TeleBot(settings.TG_BOT_TOKEN)
         try:
-            bot.send_message(CHAT_ID, f'❗️❗️❗️ НОВАЯ ЗАЯВКА ❗️❗️❗️\n\n⚽️ имя: {name}\n📞 тел.: {phone}\n👦🏻 возраст ребенка: {age}')
+            bot.send_message(
+                settings.CHAT_ID, f'❗️❗️❗️ НОВАЯ ЗАЯВКА ❗️❗️❗️\n\n⚽️ имя: {name}\n📞 тел.: {phone}\n👦🏻 возраст ребенка: {age}'
+            )
         except telebot.apihelper.ApiTelegramException:
             messages.add_message(
                 request, messages.ERROR,
