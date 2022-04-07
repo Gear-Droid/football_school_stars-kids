@@ -38,6 +38,11 @@ EMAIL_HOST_PASSWORD = 'Rasskazovka2002'
 # cryptography
 CRYPTOGRAPHY_KEY = str.encode(os.environ.get('CRYPTOGRAPHY_KEY'))
 #==============================================================================#
+# token for bot
+TG_BOT_TOKEN='5284601816:AAG1HmY4cDf2e5LQQuBHzvcpaQdlJyje4T0'
+# telegram chat id
+CHAT_ID = '-1001751034019'
+#==============================================================================#
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
