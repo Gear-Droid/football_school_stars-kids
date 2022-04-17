@@ -30,11 +30,11 @@ ALLOWED_HOSTS = [
 ]
 #==============================================================================#
 # EMAIL SEND
-EMAIL_HOST = 'smtp.rambler.ru'
+EMAIL_HOST = 'mail.hosting.reg.ru'
 EMAIL_PORT = 465
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'fcrasskazovka@rambler.ru'
-EMAIL_HOST_PASSWORD = 'Rasskazovka2002'
+EMAIL_HOST_USER = 'starskids@starskids.ru'
+EMAIL_HOST_PASSWORD = '67bTrCAv0CZV83Ci'
 #==============================================================================#
 # cryptography
 CRYPTOGRAPHY_KEY = str.encode(os.environ.get('CRYPTOGRAPHY_KEY', 'dev'))
