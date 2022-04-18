@@ -40,7 +40,7 @@ class HomePageView(View):
 
     def get(self, request, *args, **kwargs):
         context = {
-            'Title': "Футбольная школа Star's Kids",
+            'Title': "Футбольная школа 'Star's Kids'",
         }
         return render(request, 'base.html', context=context)
 
@@ -106,7 +106,7 @@ class ContactsView(View):
 
     def get(self, request, *args, **kwargs):
         context = {
-            'Title': 'Контакты тренеров школы',
+            'Title': 'Контакты тренеров',
         }
         return render(request, 'mainapp/contacts.html', context=context)
 
