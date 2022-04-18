@@ -37,166 +37,167 @@
       </script>
     <!--===============================================================================================-->
   {% endblock header %}
+
+  <style>
+		p {
+			font-size: 115%;
+		}
+		.ball_img{
+			object-fit: contain
+			display: inline-block;
+			max-width: 100%;
+			width: 170px;
+			height: auto;
+			vertical-align: middle;
+			position: absolute;
+			top: 10px;
+			bottom: 0;
+			left: 20px;
+			right: 0;
+		}
+		.bg-dark{
+			background-color: #f1e000!important;
+		}
+		.nav-link {
+			color: black!important;
+		}
+		.navbar {
+			z-index: 2;
+		}
+		.active.nav-link {
+			font-size: 20px;
+			font-weight: bold;
+		}
+		a.white-link {
+			font-weight: bold;
+			color: white;
+		}
+		.title{
+			margin-top: 100px
+		}
+		.hello-video{
+			width: 100vw;
+		}
+		div.alert{
+			text-align: center;
+		}
+		body{
+			padding-top: 71px;
+			min-height: 100% !important;
+			display: flex;
+			flex-direction: column;
+		}
+		html, body {
+			height: 100%;
+		}
+		.navbar-toggler > .navbar-toggler-icon {
+			background-image: url({% static 'mainapp/close.svg' %});
+			background-size: 18px 16px;
+		}
+		.collapsed > .navbar-toggler-icon {
+			background-image: url({% static 'mainapp/hamburger.svg' %});
+			background-size: 22px 20px;
+		}
+		.d-block {
+			margin: auto;
+		}
+		.btn-5 {
+			color: #000;
+			background-color: yellow;
+			width: 80%;
+			max-width: 1000px;
+			display: block;
+			padding: 20px 0px 20px 0px;
+			margin: auto;
+			margin-bottom: 30px;
+			text-align: center;
+			text-transform: uppercase;
+			position: relative;
+			text-decoration: none;
+			white-space: normal;
+			cursor: pointer;
+			transition: all 0.3s ease-out;
+			box-shadow: 0 0 30px rgba(0, 0, 0, .4);
+		}
+		.btn-5:hover {
+			color: #000;
+			text-decoration: none;
+			box-shadow: 0 0 30px rgba(0, 0, 0, .1);
+		}
+		#submit-btn {
+			position: absolute;
+			bottom: 40px;
+			left: 20px;
+			right: 20px;
+			margin-top:40px;
+			padding: 10px 30px 10px 30px
+		}
+		.overlay {
+			position: fixed;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: rgba(0, 0, 0, 0.7);
+			transition: opacity 500ms;
+			visibility: hidden;
+			opacity: 0;
+		}
+		.overlay:target {
+			visibility: visible;
+			opacity: 1;
+		}
+		#popup1 {
+			z-index: 2;
+		}
+		.carousel-indicators {
+			z-index: 1;
+		}
+		.popup {
+			width: 90%;
+			height: 80%;
+			margin: 70px auto;
+			padding: 20px;
+			background: #fff;
+			border-radius: 5px;
+			position: relative;
+			transition: all 5s ease-in-out;
+		}
+		.popup h2 {
+			width: 90%;
+			font-weight: bold;
+			font-size: 140%;
+			margin-top: 0;
+			color: #333;
+			font-family: Tahoma, Arial, sans-serif;
+		}
+		.popup .close {
+			position: absolute;
+			top: 20px;
+			right: 30px;
+			font-size: 30px;
+			font-weight: bold;
+			text-decoration: none;
+			color: #333;
+		}
+		.popup .close:hover {
+			color: orange;
+		}
+		.popup .content {
+			overflow: auto;
+		}
+		input:required {
+			border-color: red;
+		}
+		input:required:valid {
+			border-color: green;
+		}
+    
+    {% block style %}
+    {% endblock style %}
+  </style>
+  
 </head>
-
-<style>
-  p {
-    font-size: 115%;
-  }
-  .ball_img{
-    object-fit: contain
-    display: inline-block;
-    max-width: 100%;
-    width: 170px;
-    height: auto;
-    vertical-align: middle;
-    position: absolute;
-    top: 10px;
-    bottom: 0;
-    left: 20px;
-    right: 0;
-  }
-  .bg-dark{
-    background-color: #f1e000!important;
-  }
-  .nav-link {
-    color: black!important;
-  }
-  .navbar {
-    z-index: 2;
-  }
-  .active.nav-link {
-    font-size: 20px;
-    font-weight: bold;
-  }
-  a.white-link {
-    font-weight: bold;
-    color: white;
-  }
-  .title{
-    margin-top: 100px
-  }
-  .hello-video{
-    width: 100vw;
-  }
-  div.alert{
-    text-align: center;
-  }
-  body{
-    padding-top: 71px;
-    min-height: 100% !important;
-    display: flex;
-    flex-direction: column;
-  }
-  html, body {
-    height: 100%;
-  }
-  .navbar-toggler > .navbar-toggler-icon {
-    background-image: url({% static 'mainapp/close.svg' %});
-    background-size: 18px 16px;
-  }
-  .collapsed > .navbar-toggler-icon {
-    background-image: url({% static 'mainapp/hamburger.svg' %});
-    background-size: 22px 20px;
-  }
-  .d-block {
-    margin: auto;
-  }
-  .btn-5 {
-    color: #000;
-    background-color: yellow;
-    width: 80%;
-    max-width: 1000px;
-    display: block;
-    padding: 20px 0px 20px 0px;
-    margin: auto;
-    margin-bottom: 30px;
-    text-align: center;
-    text-transform: uppercase;
-    position: relative;
-    text-decoration: none;
-    white-space: normal;
-    cursor: pointer;
-    transition: all 0.3s ease-out;
-    box-shadow: 0 0 30px rgba(0, 0, 0, .4);
-  }
-  .btn-5:hover {
-    color: #000;
-    text-decoration: none;
-    box-shadow: 0 0 30px rgba(0, 0, 0, .1);
-  }
-  #submit-btn {
-    position: absolute;
-    bottom: 40px;
-    left: 20px;
-    right: 20px;
-    margin-top:40px;
-    padding: 10px 30px 10px 30px
-  }
-  .overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.7);
-    transition: opacity 500ms;
-    visibility: hidden;
-    opacity: 0;
-  }
-  .overlay:target {
-    visibility: visible;
-    opacity: 1;
-  }
-  #popup1 {
-    z-index: 2;
-  }
-  .carousel-indicators {
-    z-index: 1;
-  }
-  .popup {
-    width: 90%;
-    height: 80%;
-    margin: 70px auto;
-    padding: 20px;
-    background: #fff;
-    border-radius: 5px;
-    position: relative;
-    transition: all 5s ease-in-out;
-  }
-  .popup h2 {
-    width: 90%;
-    font-weight: bold;
-    font-size: 140%;
-    margin-top: 0;
-    color: #333;
-    font-family: Tahoma, Arial, sans-serif;
-  }
-  .popup .close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 30px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
-  }
-  .popup .close:hover {
-    color: orange;
-  }
-  .popup .content {
-    overflow: auto;
-  }
-  input:required {
-    border-color: red;
-  }
-  input:required:valid {
-    border-color: green;
-  }
-
-  {% block style %}
-  {% endblock style %}
-</style>
 
 <body>
 
@@ -317,7 +318,7 @@
                     <input id="AgeInput" class="form-control" type="number" min="1" max="99" placeholder="Введите возраст ребенка" name="age">
                   </div>
                 </form>
-                <input id='submit-btn' class='btn btn-primary' type='submit' value='Отправить заявку' form='data'></button>
+                <input id='submit-btn' class='btn btn-primary' type='submit' value='Отправить заявку' form='data'></input>
               </div>
             </div>
           </div>
