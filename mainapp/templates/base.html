@@ -205,7 +205,7 @@
     <div class="container">
       <a class="navbar-brand " style="font-size: 22px; color:#000; font-weight: bold;" href="{% url 'base' %}">Футбольная школа</a>
       <div>
-        <img class="img-fluid" style="width: 60px;" src="{% static 'mainapp/footer/StarsKidslogo.png' %}" alt="Ball image">
+        <img class="img-fluid" style="width: 60px;" src="{% static 'mainapp/footer/StarsKidslogo.png' %}" alt="Star's kids ball image">
       </div>
       <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -314,13 +314,13 @@
             </ol>
             <div class="carousel-inner" role="listbox">
               <div class="carousel-item active">
-                <img class="d-block img-fluid" src="{% static 'mainapp/carousel/slide1-900x365.jpg' %}" alt="First slide">
+                <img class="d-block img-fluid" src="{% static 'mainapp/carousel/slide1-900x365.jpg' %}" alt="Star's kids training">
               </div>
               <div class="carousel-item">
-                <img class="d-block img-fluid" src="{% static 'mainapp/carousel/slide2-900x365.jpg' %}" alt="Second slide">
+                <img class="d-block img-fluid" src="{% static 'mainapp/carousel/slide2-900x365.jpg' %}" alt="Star's kids training">
               </div>
               <div class="carousel-item">
-                <img class="d-block img-fluid" src="{% static 'mainapp/carousel/slide3-900x365.jpg' %}" alt="Third slide">
+                <img class="d-block img-fluid" src="{% static 'mainapp/carousel/slide3-900x365.jpg' %}" alt="Star's kids training">
               </div>
             </div>
             <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -366,6 +366,7 @@
       loop
       playsinline
       controls
+      poster="{% static 'mainapp/carousel/slide1-900x365.jpg' %}"
       muted
       preload="auto">
         <source src="{% static 'videos/train_video_540p.mp4' %}">
@@ -381,7 +382,7 @@
         <div class="col-10">
           <div class="row mt-3">
             <div class="col-4">
-              <img class="ball_img" src="{% static 'mainapp/footer/StarsKidslogo.png' %}" alt="Ball image">
+              <img class="ball_img" src="{% static 'mainapp/footer/StarsKidslogo.png' %}" alt="Star's kids ball image">
             </div>
             <div class="col-8">
 
