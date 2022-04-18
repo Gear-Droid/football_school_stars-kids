@@ -1,4 +1,5 @@
 ﻿import os
+from xmlrpc.client import boolean
 
 
 """
@@ -23,7 +24,7 @@ BASE_URL = os.environ.get('BASE_URL', 'localhost:8000')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', 'dev')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'True')
+DEBUG = eval(os.environ.get('DEBUG', 'True'))
 ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST1'),
     os.environ.get('ALLOWED_HOST2')
