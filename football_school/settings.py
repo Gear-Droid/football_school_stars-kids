@@ -30,14 +30,14 @@ ALLOWED_HOSTS = [
 ]
 #==============================================================================#
 # EMAIL SEND
-EMAIL_HOST = 'mail.hosting.reg.ru'
-EMAIL_PORT = 465
+EMAIL_HOST = 'mail.starskids.ru'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'starskids@starskids.ru'
+EMAIL_HOST_USER = 'info@stars-kids.ru'
 EMAIL_HOST_PASSWORD = '67bTrCAv0CZV83Ci'
 #==============================================================================#
 # cryptography
-CRYPTOGRAPHY_KEY = str.encode(os.environ.get('CRYPTOGRAPHY_KEY', 'dev'))
+CRYPTOGRAPHY_KEY = str(os.environ.get('CRYPTOGRAPHY_KEY', 'dev')).encode()
 #==============================================================================#
 # token for bot
 TG_BOT_TOKEN = os.environ.get('TG_BOT_TOKEN')

@@ -1,5 +1,6 @@
 import os
 import datetime
+import base64
 
 from cryptography.fernet import Fernet
 
@@ -66,7 +67,6 @@ def make_registration_link(email, key):
 def send_invitation_to_register(email):
     key = settings.CRYPTOGRAPHY_KEY
     address = make_registration_link(email, key)
-    print(address)
     message = address
     send_mail(
         'Регистрация в личном кабинете',  # Тема письма
