@@ -25,8 +25,8 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'dev')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = "True"
 ALLOWED_HOSTS = [
-    os.environ.get('ALLOWED_HOST1'),
-    os.environ.get('ALLOWED_HOST2')
+    os.environ.get('ALLOWED_HOST1', '127.0.0.1'),
+    os.environ.get('ALLOWED_HOST2', 'localhost')
 ]
 #==============================================================================#
 # EMAIL SEND
@@ -109,6 +109,12 @@ WSGI_APPLICATION = 'football_school.wsgi.application'
 
 DATABASES = {
     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
+    }
+}
+"""DATABASES = {
+    'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': DB_NAME,
         'USER': DB_USER_NAME,
@@ -119,7 +125,7 @@ DATABASES = {
         },
     }
 }
-
+"""
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
