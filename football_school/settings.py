@@ -1,5 +1,4 @@
 ﻿import os
-from xmlrpc.client import boolean
 
 
 """
@@ -24,10 +23,10 @@ BASE_URL = os.environ.get('BASE_URL', 'localhost:8000')
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY', 'dev')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = "True"
 ALLOWED_HOSTS = [
-    os.environ.get('ALLOWED_HOST1'),
-    os.environ.get('ALLOWED_HOST2')
+    os.environ.get('ALLOWED_HOST1', '127.0.0.1'),
+    os.environ.get('ALLOWED_HOST2', 'localhost')
 ]
 #==============================================================================#
 # EMAIL SEND
@@ -108,6 +107,12 @@ WSGI_APPLICATION = 'football_school.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+"""DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
+    }
+}"""
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
