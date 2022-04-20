@@ -1,3 +1,4 @@
 requirements.txt
 *.pyc
 *.cpython-38.pyc
+debug.log
