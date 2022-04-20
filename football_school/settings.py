@@ -181,8 +181,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 WHITENOISE_MANIFEST_STRICT = False
 STATICFILES_DIRS = (
-    'prod/static/',
-    # os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR,'prod/static'),
 )
 
 # forms
