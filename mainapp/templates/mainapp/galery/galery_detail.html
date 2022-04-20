@@ -5,25 +5,49 @@
 {% endblock header %}
 
 {% block style %}
-  .card{
-    border-radius: 10px;
+  .list-container {
+    padding: 0px;
+    list-style-position: outside;
+    display: flex;
+    flex-wrap: wrap;
   }
-  .card-container{
-    padding: 5px; 
-    width: 92vw;
-    float: left;
-    height: 400px;
-    margin-bottom: 10px;
+  .list-container-item {
+    height: 40vh;
+    flex-grow: 1;
+    list-style-type: none;
   }
-  .card-title{
-    margin-bottom: 20px;
+  .list-container-item-img {
+    max-height: 100%;
+    min-width: 100%;
+    object-fit: cover;
+    vertical-align: bottom;
   }
-  .card-body{
-    padding: 10px;
+  .list-container-item:last-child {
+    flex-grow: 10;
   }
-  div.card-img-top {
-    width: 100%;
-    height: auto;
+  @media (max-aspect-ratio: 1/1) {
+    .list-container-item{
+      height: 30vh;
+    }
+  }
+  @media (max-height: 480px) {
+    .list-container-item{
+      height: 80vh;
+    }
+  }
+  @media (max-aspect-ratio: 1/1) and (max-width: 480px) {
+    .list-container {
+      flex-direction: row;
+    }
+    .list-container-item{
+      height: auto;
+      width: 100%;
+    }  
+    .list-container-item-img {
+      width: 100%;
+      max-height: 75vh;
+      min-width: 0;
+    }
   }
 {% endblock style %}
 
@@ -37,26 +61,15 @@
 {% endblock intro %}
 
 {% block content %}
-
-  {% for p in photo %}
-    <div class="pb-4">
-      <img src="{{ p.event_photo.url }}" alt="{{ p.pk }}. photo_in_galery_img" class="img-fluid">
-    </div>
-    {% comment %} 
-      <div class="card-container col-lg-4 col-md-6">
-        <div class="card h-100">
-          <a href="{{ galery.get_absolute_url }}">
-            <img class="card-img-top" src="{{ galery.event_photo.url }}" alt="{{ galery.pk }}. galery_img">
-          </a>
-          <div class="card-body">
-            <h6 class="card-title text-center">
-              <b>{{ galery.header }}</b>
-            </h6>
-            <p class="text-center">{{ galery.description }}</p>
-          </div>
-        </div>
-      </div>
-    {% endcomment %}
-  {% endfor %}
-
 {% endblock content %}
+
+{% block prefooter %}
+<ul class="list-container" style="margin:0px;">
+  {% for p in photo %}
+    <li class="list-container-item">
+      <img src="{{ p.event_photo.url }}" alt="{{ p.pk }}. photo_in_galery_img" class="list-container-item-img" loading="lazy">
+    </li>
+  {% endfor %}
+  <li></li>
+</ul>
+{% endblock prefooter %}

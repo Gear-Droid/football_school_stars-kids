@@ -24,9 +24,9 @@
   <!--===============================================================================================-->
 
   {% block header %}
-    <title>Футбольная школа Star's Kids в Москве для детей от 3х лет м. Крылатское</title>
-    <meta name="keywords" content="футбольная школа, футбол, тренировки, дети, Star's Kids, Stars-kids, крылатское">
-    <meta name="description" content="Футбольная школа для детей в Москве «Star’s Kids». Для детей разного уровня подготовки: от 3 до 16 лет. Идёт набор на сезон 22/23">
+    <title>Футбольная школа Star's Kids для детей от 3х лет в Москве м. Крылатское</title>
+    <meta name="keywords" content="Футбольная школа Star's Kids | для детей от 3 лет Москва, футбол, тренировки, дети, Star's Kids, Stars-kids, крылатское">
+    <meta name="description" content="Футбольная школа для детей «Star’s Kids» в Москве. Для детей разного уровня подготовки: от 3 до 16 лет. Идёт набор на сезон 22/23">
     <!--===============================================================================================-->
       <!-- Jquery inputmask core JS -->
       <script src="{% static 'js/bootstrap-4.0.0-dist/js/jquery.inputmask.bundle.min.js' %}"></script>
@@ -62,7 +62,7 @@
 			color: black!important;
 		}
 		.navbar {
-			z-index: 2;
+			z-index: 20;
 		}
 		.active.nav-link {
 			font-size: 20px;
@@ -235,11 +235,9 @@
           <li class="nav-item">
             <a class="{% if Title == 'О школе' %} active {% endif %} nav-link" href="{% url 'about_us' %}">О школе</a>
           </li>
-          {% comment "" %}
-            <li class="nav-item">
-              <a class="{% if Title == 'Галерея' %} active {% endif %} nav-link" href="{% url 'galery' %}">Галерея</a>
-            </li>
-          {% endcomment %}
+          <li class="nav-item">
+            <a class="{% if Title == 'Галерея' %} active {% endif %} nav-link" href="{% url 'galery' %}">Галерея</a>
+          </li>
           <li class="nav-item">
             <a class="{% if Title == 'Контакты тренеров' %} active {% endif %} nav-link" href="{% url 'contacts' %}">Контакты</a>
           </li>
@@ -253,7 +251,7 @@
           {% if request.user.is_authenticated %}
             <li class="nav-item" style="display: flex;">
               <span class="nav-link disabled">{{ request.user.first_name }} {{ request.user.last_name }}</span>
-              <a class="white-link" href="{% url 'logout' %}" style="margin: auto; margin-left: 10px;"> Выйти</a>
+              <a class="white-link" href="{% url 'logout' %}" style="margin: auto; margin-left: 10px;">Выйти</a>
             </li>
           {% endif %}
         </ul>
