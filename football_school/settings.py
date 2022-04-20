@@ -121,6 +121,7 @@ else:
             'PASSWORD': DB_PASSWORD,
             'HOST': 'localhost',
             'OPTIONS': {
+                'charset': 'utf8mb4',
                 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             },
         }
@@ -164,12 +165,15 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 MEDIA_URL = 'media/'
+STATIC_ROOT = 'static/'
+MEDIA_ROOT = 'media/'
+
 if DEBUG:
-    STATIC_ROOT = '../static/'
-    MEDIA_ROOT = '../media/'
-else:
-    STATIC_ROOT = 'static/'
-    MEDIA_ROOT = 'media/'
+    STATICFILES_DIRS = (
+    '../static/',
+    '../media/',
+    )
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
