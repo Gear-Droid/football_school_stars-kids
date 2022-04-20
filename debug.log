@@ -1,0 +1,3 @@
+2022-04-20 03:13:20,741 django.utils.autoreload INFO     Watching for file changes with StatReloader
+2022-04-20 03:15:40,670 django.utils.autoreload INFO     /home/vlad/Документы/stars-kids/football_school_stars-kids/football_school/settings.py changed, reloading.
+2022-04-20 03:15:41,030 django.utils.autoreload INFO     Watching for file changes with StatReloader

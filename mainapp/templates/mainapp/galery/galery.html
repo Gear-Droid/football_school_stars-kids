@@ -5,34 +5,68 @@
 {% endblock header %}
 
 {% block style %}
-  .card{
-    border-radius: 10px;
+  .galery-container{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
   }
   .card-container{
-    padding: 5px; 
-    width: 92vw;
-    float: left;
-    height: 460px;
-    margin-bottom: 10px;
+    width: 300px;
+    min-width: 15vw;
+    margin: 20px;
   }
-  .card-title{
-    margin-bottom: 20px;
+  .card{
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease-out;
+    box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, .25);
   }
-  .card-body{
-    margin-top: 10px;
-    padding: 5px;
-    padding-left: 20px;
-    padding-right: 20px;
+  .card:hover{
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, .1);
   }
   .card-img-div{
-    align-self: center;
-    width: 330px;
-  }
-  .card-img-top {
-    margin: auto;
     height: 300px;
-    width: auto;
+    min-height: 15vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-img-top{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    object-fit: cover;
+    height: 100%;
+  }
+  .card-body{
+    color: black;
+    height: 150px;
+    z-index: 10;
+  }
+  .card-title{
+    font-weight: bold;
+    margin-bottom: 12px;
+    z-index: 10;
+  }
+  .card-description{
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
     overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 90%;
+  }
+  .card-description:hover{
+    transition-delay: 2s;
+    -webkit-transition: 850ms;
+    overflow: revert;
+    -webkit-line-clamp: unset;
+    background-color: white;
+    box-shadow: -20px 0px 0px 0px white, 20px 0px 0px 0px white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  div a:hover, a:active{
+    text-decoration: none;
   }
 {% endblock style %}
 
@@ -45,26 +79,30 @@
 {% endblock intro %}
 
 {% block content %}
+<div class="galery-container">
   <!-- Навигация по галереям -->
   {% for galery in galery_catalog %}
-    <div class="card-container col-lg-4 col-md-6">
-      <div class="card h-100">
-        <div class="card-img-div" style="overflow: hidden;">
-          <a href="{{ galery.get_absolute_url }}">
-            <img class="card-img-top center-cropped"  src="{{ galery.galery_photo.url }}" alt="{{ galery.pk }}. galery_img">
-          </a>
+    <div class="card-container">
+      <a href="{{ galery.get_absolute_url }}">
+        <div class="card">
+          <div class="card-img-div" style="">
+            <img class="card-img-top" src="{{ galery.galery_photo.url }}" alt="{{ galery.pk }}. galery_img">
+          </div>
+          <div class="card-body">
+            <h5 class="card-title text-center">
+              {{ galery.header }}
+            </h5>
+            <p class="card-description text-center">
+              {{ galery.description|linebreaksbr }}
+            </p>
+          </div>
         </div>
-        <div class="card-body">
-          <h6 class="card-title text-center">
-            <b>{{ galery.header }}</b>
-          </h6>
-          <p class="text-center">{{ galery.description|linebreaks }}</p>
-        </div>
-      </div>
+      </a>
     </div>
   {% endfor %}
+</div>
 {% endblock content %}
 
 {% block prefooter %}
-  <div style="margin-top: 20px;"></div>
+<div style="margin-top: 20px;"></div>
 {% endblock prefooter %}

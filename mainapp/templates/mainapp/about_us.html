@@ -15,11 +15,12 @@
 {% endblock intro %}
 
 {% block style %}
-	.trainer-image{
-		width: 100vw;
-	}
 	p{
 		font-size: 110%;
+	}
+	.childs-img{
+		width: 80vw;
+		max-width: 360px;
 	}
 {% endblock style %}
 
@@ -31,7 +32,7 @@
 	</p>
 
 	<div class="container mb-3">
-		<img class="child-img d-block img-fluid"
+		<img class="childs-img d-block img-fluid"
 			src="{% static 'mainapp/about/child1.jpg' %}" alt="child1">
 	</div>
 
@@ -52,7 +53,7 @@
 	<p class="text-center mb-3" style="font-size:150%;"><b>Участие в турнирах</b></p>
 
 	<div class="container mb-3">
-		<img class="child-img d-block img-fluid"
+		<img class="childs-img d-block img-fluid"
 			src="{% static 'mainapp/about/childs2.jpg' %}" alt="childs2">
 	</div>
 
