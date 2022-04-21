@@ -92,9 +92,8 @@ class Galery(models.Model):
 
     class Meta:
         verbose_name_plural = 'Галереи'
-
     header = models.CharField(
-        max_length=128,
+        max_length=64,
         verbose_name='Заголовок события в галерее'
     )
     description = models.TextField(
@@ -102,7 +101,7 @@ class Galery(models.Model):
         verbose_name='Описание галереи', null=True, blank=True
     )
     galery_photo = models.ImageField(verbose_name='Фото галереи')
-    slug = models.SlugField(unique=True, max_length=128)
+    slug = models.SlugField(unique=True, max_length=64)
 
     def get_absolute_url(self):
         return reverse('galery_detail', kwargs={
