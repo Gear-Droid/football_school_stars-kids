@@ -121,7 +121,6 @@ else:
             'PASSWORD': DB_PASSWORD,
             'HOST': 'localhost',
             'OPTIONS': {
-                'charset': 'utf8mb4_unicode_ci',
                 'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             },
         }
