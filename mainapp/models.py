@@ -97,11 +97,11 @@ class Galery(models.Model):
         verbose_name='Заголовок события в галерее'
     )
     description = models.TextField(
-        max_length=512,
+        max_length=255,
         verbose_name='Описание галереи', null=True, blank=True
     )
     galery_photo = models.ImageField(verbose_name='Фото галереи')
-    slug = models.SlugField(unique=True, max_length=64)
+    slug = models.SlugField(unique=True, max_length=255)
 
     def get_absolute_url(self):
         return reverse('galery_detail', kwargs={
