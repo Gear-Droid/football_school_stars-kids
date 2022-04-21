@@ -28,7 +28,7 @@ class GaleryAdminForm(ModelForm):
 
 class GaleryAdmin(admin.ModelAdmin):
     # Поле slug будет заполнено на основе поля header
-    prepopulated_fields = {"slug": ("header", )}
+    prepopulated_fields = {"slug": ("description", )}
 
 
 class ScheduleAdmin(admin.ModelAdmin):
