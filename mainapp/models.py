@@ -132,7 +132,7 @@ class News(models.Model):
         verbose_name_plural = 'Новости'
 
     header = models.CharField(
-        max_length=255, verbose_name='Заголовок новости'
+        max_length=128, verbose_name='Заголовок новости'
     )
     news_photo = models.ImageField(
         verbose_name='Изображение новости', null=True, blank=True
@@ -277,7 +277,7 @@ class Group(models.Model):
         verbose_name_plural = 'Группы'
 
     name = models.CharField(
-        max_length=255, verbose_name='Название группы', unique=True
+        max_length=64, verbose_name='Название группы', unique=True
     )
     age_category = models.ForeignKey(
         AgeCategory, verbose_name='Возрастная группа', on_delete=models.CASCADE
@@ -307,8 +307,8 @@ class Department(models.Model):
     class Meta:
         verbose_name_plural = 'Отделения'
 
-    name = models.CharField(max_length=255, verbose_name='Название отделения', unique=True)
-    address = models.CharField(max_length=255, verbose_name='Адрес отделения')
+    name = models.CharField(max_length=64, verbose_name='Название отделения', unique=True)
+    address = models.CharField(max_length=128, verbose_name='Адрес отделения')
     photo = models.ImageField(
         verbose_name='Изображение отделения', null=True, blank=True
     )
